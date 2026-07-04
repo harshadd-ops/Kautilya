@@ -94,6 +94,14 @@ export const api = {
     if (MOCK_MODE) return structuredClone(MOCK_OBSERVABILITY);
     return get(`/v1/ops/observability`);
   },
+  async opsAudit(): Promise<any[]> {
+    if (MOCK_MODE) return []; // Fallback empty or hardcode mock if needed
+    return get(`/v1/ops/audit`);
+  },
+  async setConsent(customer_id: string, purpose: string, granted: boolean): Promise<any> {
+    if (MOCK_MODE) return { ok: true };
+    return post(`/v1/ops/consent`, { customer_id, purpose, granted });
+  },
 };
 
 /** WebSocket for the live funnel tick. Returns a cleanup fn. No-op in mock mode. */

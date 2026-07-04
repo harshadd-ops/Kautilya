@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import os
 
+from pydantic import BaseModel
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -180,6 +181,23 @@ def ops_barriers() -> BarrierResponse:
 @app.get("/v1/ops/observability", response_model=ObservabilityResponse)
 def ops_observability() -> ObservabilityResponse:
     return metrics.build_observability(AUDIT)
+
+
+@app.get("/v1/ops/audit")
+def ops_audit() -> list[dict]:
+    return AUDIT.list_recent(limit=100)
+
+
+class ConsentRequest(BaseModel):
+    customer_id: str
+    purpose: str
+    granted: bool
+
+
+@app.post("/v1/ops/consent")
+def ops_consent(req: ConsentRequest) -> dict:
+    GRAPH.set_consent(req.customer_id, req.purpose, req.granted)
+    return {"ok": True, "customer_id": req.customer_id, "purpose": req.purpose, "granted": req.granted}
 
 
 @app.websocket("/v1/stream")

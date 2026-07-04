@@ -119,3 +119,12 @@ class AuditStore:
             (limit,),
         )
         return [round(r[0], 2) for r in reversed(cur.fetchall())]
+
+    def list_recent(self, limit: int = 50) -> list[dict]:
+        cur = self._conn.execute(
+            "SELECT event_id, action_id, customer_id, verb, nba_class, reg_class, approval_level, "
+            "confidence, human_decision, outcome, reason_code, created_at "
+            "FROM audit_events ORDER BY created_at DESC LIMIT ?",
+            (limit,),
+        )
+        return [dict(r) for r in cur.fetchall()]

@@ -95,7 +95,31 @@ def author(graph: GraphPort, intent: Intent, grounding: Grounding) -> Optional[A
 
     archetype = intent.archetype
 
+    # 1. Gather all potential candidates for the persona
     if archetype == "mid_career":
+        candidates = ["ReactivateAccount", "SuggestCreditBuilder", "RecommendSIP"]
+    elif archetype == "young_student":
+        candidates = ["EscalateToRM", "SurfaceKFS", "RecommendMicroSIP"]
+    elif archetype == "senior":
+        candidates = ["ScamShieldAlert", "SuggestSeniorFD"]
+    else:
+        candidates = []
+
+    # 2. Filter by eligibility (in this demo, we simulate that only the grounded intent is eligible today)
+    eligible_candidates = [v for v in candidates if v == intent.candidate_verb]
+    if not eligible_candidates:
+        eligible_candidates = [intent.candidate_verb]
+
+    # 3. Dynamic Priority Ranking (Service > Education > Offer)
+    priority_score = {NbaClass.service: 100, NbaClass.education: 60, NbaClass.offer: 20}
+    
+    best_verb = sorted(
+        eligible_candidates,
+        key=lambda v: priority_score.get(VERB_CONTRACTS[v]["nba"], 0),
+        reverse=True
+    )[0]
+
+    if best_verb == "RecommendSIP":
         action = _governed("RecommendSIP", product, _SIP_TICKET)
         content = AiContent(
             component="AIInsightCard",
@@ -111,7 +135,7 @@ def author(graph: GraphPort, intent: Intent, grounding: Grounding) -> Optional[A
         secondary = [_governed("OfferTermCover", graph.get_product("prod_termcover"), 0)]
         confidence = 0.92
 
-    elif archetype == "young_student":
+    elif best_verb == "RecommendMicroSIP":
         action = _governed("RecommendMicroSIP", product, _MICROSIP_TICKET)
         content = AiContent(
             component="AIInsightCard",
@@ -126,7 +150,7 @@ def author(graph: GraphPort, intent: Intent, grounding: Grounding) -> Optional[A
         secondary = [_governed("SuggestCreditBuilder", graph.get_product("prod_creditbuilder"), 0)]
         confidence = 0.85
 
-    elif archetype == "senior":
+    elif best_verb == "SuggestSeniorFD":
         action = _governed("SuggestSeniorFD", product, _SENIORFD_TICKET)
         content = AiContent(
             component="AIInsightCard",

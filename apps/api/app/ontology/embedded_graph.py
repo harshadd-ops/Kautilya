@@ -180,6 +180,12 @@ class EmbeddedGraph:
         if customer_id in self.g.nodes:
             self.g.nodes[customer_id]["dormancy_state"] = state
 
+    def set_consent(self, customer_id: str, purpose: str, granted: bool) -> None:
+        for cid in self._neighbours(customer_id, S.HAS_CONSENT, S.CONSENT):
+            c = self.g.nodes[cid]
+            if c.get("purpose") == purpose:
+                self.g.nodes[cid]["granted"] = granted
+
     def add_holding(self, customer_id: str, product_id: str) -> None:
         hid = f"hold_{customer_id}_{product_id}"
         if hid in self.g.nodes:

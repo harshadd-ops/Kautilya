@@ -24,6 +24,7 @@ import { ReasoningPathInspector } from "../components/ReasoningPathInspector";
 import { SBIBadge } from "../components/atoms/SBIBadge";
 import { bandToAmount, inr } from "../lib/format";
 import { Bell, CheckCircle, Confetti } from "../lib/icons";
+import { Microphone } from "@phosphor-icons/react";
 import { useAdaptive } from "../lib/adaptive";
 import { useUiStore } from "../store/uiStore";
 
@@ -43,6 +44,7 @@ export default function Home() {
 
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [whyOpen, setWhyOpen] = useState(false);
+  const [voiceOpen, setVoiceOpen] = useState(false);
   const [done, setDone] = useState(false);
 
   // Act-1 beat is driven by the provider's real fetch: each persona switch re-runs the spine, so
@@ -72,9 +74,9 @@ export default function Home() {
   }
 
   return (
-    <div className="phone-scroll flex-1 overflow-y-auto pb-24">
+    <div className="phone-scroll flex-1 overflow-y-auto pb-28 bg-slate-50">
       {/* header */}
-      <div className="bg-brand px-4 pb-6 pt-3 text-white">
+      <div className="bg-brand px-6 pb-8 pt-4 text-white rounded-b-3xl shadow-sm">
         <div className="flex items-start justify-between">
           <div>
             <p className="t-body-sm text-white/70">Welcome back</p>
@@ -91,7 +93,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="screen-stack -mt-3 px-4">
+      <div className="screen-stack -mt-5 px-6 space-y-6">
         {/* account */}
         {account && (
           <AccountCard
@@ -205,10 +207,20 @@ export default function Home() {
           </>
         )}
 
-        <p className="pt-2 text-center t-label-sm text-content-tertiary">
+        <p className="pt-6 pb-2 text-center t-label-sm text-slate-400 font-medium tracking-wide">
           All figures SYNTHETIC · not real SBI customer data
         </p>
       </div>
+
+      {/* Voice-First Interface for Dadaji (Senior Profile) */}
+      {profile?.archetype === "senior" && (
+        <button 
+          onClick={() => setVoiceOpen(true)}
+          className="fixed bottom-24 right-6 h-16 w-16 rounded-full bg-brand text-white shadow-xl shadow-brand/30 flex items-center justify-center hover:scale-105 transition-transform z-40 border-4 border-white"
+        >
+          <Microphone size={28} weight="fill" />
+        </button>
+      )}
 
       {/* HITL confirm gate (money-touching → human approval) */}
       {action && (
@@ -242,10 +254,51 @@ export default function Home() {
             compact
           />
         )}
-        <p className="mt-3 t-body-sm text-content-tertiary">
+        <p className="mt-4 t-body-sm text-slate-500 leading-relaxed">
           Based on your declared goals and consented signals from the last 90 days. The recommendation
           was authored by a deterministic engine; the language model only explained it.
         </p>
+
+        {/* Mock Session Memory (DPDP Data Minimization) */}
+        <div className="mt-8 border-t border-slate-100 pt-6">
+          <h4 className="text-[11px] font-bold tracking-widest uppercase text-slate-400 mb-4">Distilled Session Memories</h4>
+          <div className="bg-white rounded-xl p-5 border border-slate-100 shadow-sm flex flex-col gap-4">
+             <div className="flex items-start gap-4">
+               <span className="h-2 w-2 rounded-full bg-red-400 mt-1.5 shrink-0 shadow-sm" />
+               <p className="text-[13px] text-slate-500 font-mono leading-relaxed"><span className="text-slate-800 font-semibold font-sans text-sm">VKYC Abandonment</span><br/>Screen: 'Onboarding' · Severity: 0.8<br/><span className="text-slate-400 text-xs">2026-07-03</span></p>
+             </div>
+             <div className="h-px w-full bg-slate-50" />
+             <div className="flex items-start gap-4">
+               <span className="h-2 w-2 rounded-full bg-emerald-400 mt-1.5 shrink-0 shadow-sm" />
+               <p className="text-[13px] text-slate-500 font-mono leading-relaxed"><span className="text-slate-800 font-semibold font-sans text-sm">Read KFS Document</span><br/>Subject: 'Retirement' · Dwell: 45s<br/><span className="text-slate-400 text-xs">2026-06-28</span></p>
+             </div>
+          </div>
+        </div>
+      </BottomSheet>
+
+      {/* Voice Assistant Modal */}
+      <BottomSheet open={voiceOpen} onClose={() => setVoiceOpen(false)} title="Voice Assistant" height="55%">
+        <div className="flex flex-col h-full pt-6">
+          <div className="flex justify-end mb-6">
+            <div className="bg-brand text-white rounded-2xl rounded-tr-sm px-5 py-3 max-w-[85%] text-[15px] shadow-sm font-medium">
+              Beta, FD kaise start karein?
+            </div>
+          </div>
+          <div className="flex justify-start">
+            <div className="bg-slate-100 text-slate-800 rounded-2xl rounded-tl-sm px-5 py-4 max-w-[90%] text-[15px] shadow-sm leading-relaxed border border-slate-200">
+              Pranam Dadaji. Aapki pension par <strong className="text-brand font-semibold">7.5% interest</strong> milega. Kya main Branch Manager ko call karne ke liye kahun?
+            </div>
+          </div>
+          <div className="mt-auto flex justify-center pb-12 pt-10">
+            <div className="relative flex items-center justify-center">
+              <div className="absolute h-24 w-24 bg-brand/10 rounded-full animate-ping" />
+              <div className="absolute h-20 w-20 bg-brand/20 rounded-full animate-pulse" />
+              <div className="relative h-16 w-16 bg-brand text-white rounded-full flex items-center justify-center shadow-lg shadow-brand/40 z-10">
+                <Microphone size={32} weight="fill" />
+              </div>
+            </div>
+          </div>
+        </div>
       </BottomSheet>
     </div>
   );
