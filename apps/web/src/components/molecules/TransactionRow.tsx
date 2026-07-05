@@ -1,6 +1,6 @@
 /**
- * <TransactionRow> — DESIGN.md §5.2. Leading category icon, 2-line title/meta, trailing signed
- * amount (green credit / red debit, never colour alone — sign + colour). Optional inline AI tag.
+ * <TransactionRow> - DESIGN.md §5.2. Leading category icon, 2-line title/meta, trailing signed
+ * amount (green credit / red debit, never colour alone - sign + colour). Optional inline AI tag.
  */
 import { PhIcon } from "../../lib/icons";
 import { inr } from "../../lib/format";

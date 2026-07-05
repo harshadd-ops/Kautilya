@@ -1,6 +1,6 @@
 /**
- * <AISpendingSummaryWidget> — DESIGN.md §8.2. Monthly spend + category bars. White card (NOT
- * purple — it's a widget, the AI ✦ badge is the only AI marker). Reserves height ⇒ CLS-safe.
+ * <AISpendingSummaryWidget> - DESIGN.md §8.2. Monthly spend + category bars. White card (NOT
+ * purple - it's a widget, the AI ✦ badge is the only AI marker). Reserves height ⇒ CLS-safe.
  */
 import { motion } from "framer-motion";
 import { Sparkle } from "../../lib/icons";

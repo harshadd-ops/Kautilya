@@ -1,4 +1,4 @@
-/** Ops data hook — fetches the three ops surfaces and subscribes to the live WS funnel tick. */
+/** Ops data hook - fetches the three ops surfaces and subscribes to the live WS funnel tick. */
 import { useEffect, useState } from "react";
 import { api, openStream } from "../api/client";
 import type { ActivationResponse, BarrierResponse, ObservabilityResponse } from "../api/types";

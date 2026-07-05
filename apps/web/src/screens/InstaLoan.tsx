@@ -1,6 +1,6 @@
 /**
- * Insta Loan — real-YONO Pre-Approved Personal Loan (PAPL), disbursed in minutes.
- * MY AI layer: eligibility is persona/DCS-adaptive — a real pre-approved offer for the mid-career
+ * Insta Loan - real-YONO Pre-Approved Personal Loan (PAPL), disbursed in minutes.
+ * MY AI layer: eligibility is persona/DCS-adaptive - a real pre-approved offer for the mid-career
  * customer, a credit-builder path for the student (no shaming), and a branch-assisted path for the
  * senior (EscalateToRM). The reasoning stays governed; only the surface adapts. SYNTHETIC.
  */
@@ -35,7 +35,7 @@ export default function InstaLoan() {
   const [confirm, setConfirm] = useState(false);
   const monthly = useMemo(() => emi(amount, tenor), [amount, tenor]);
 
-  // STUDENT — no big loan; AI offers the credit-building path instead (never shaming)
+  // STUDENT - no big loan; AI offers the credit-building path instead (never shaming)
   if (archetype === "young_student") {
     return (
       <div className="phone-scroll flex-1 overflow-y-auto pb-24">
@@ -43,7 +43,7 @@ export default function InstaLoan() {
         <div className="screen-stack p-4">
           <div className="rounded-lg border border-ai-border bg-ai-surface p-5">
             <div className="flex items-center gap-1.5 t-label-sm text-ai">
-              <Sparkle size={14} weight="fill" /> AI · build first, borrow later
+              <Sparkle size={14} weight="fill" /> AI - build first, borrow later
             </div>
             <h2 className="mt-2 t-title-lg text-ai-text">Build a credit score, unlock bigger limits</h2>
             <p className="mt-1 t-body text-content-secondary">
@@ -69,10 +69,10 @@ export default function InstaLoan() {
         >
           <span className="t-label-sm uppercase text-white/70">You're pre-approved for</span>
           <div className="mt-1 t-headline">{inr(preApproved)}</div>
-          <span className="t-body-sm text-white/70">10.5% p.a. · disbursed in minutes · no paperwork</span>
+          <span className="t-body-sm text-white/70">10.5% p.a. - disbursed in minutes - no paperwork</span>
         </div>
 
-        {/* SENIOR — branch-assisted path offered prominently */}
+        {/* SENIOR - branch-assisted path offered prominently */}
         {archetype === "senior" && (
           <div className="rounded-lg border border-ai-border bg-ai-surface p-4">
             <div className="flex items-center gap-1.5 t-label-sm text-ai">

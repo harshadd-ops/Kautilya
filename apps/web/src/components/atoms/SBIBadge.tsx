@@ -1,4 +1,4 @@
-/** <SBIBadge> — DESIGN.md §5.1 status badge. Variants incl. AI (purple). */
+/** <SBIBadge> - DESIGN.md §5.1 status badge. Variants incl. AI (purple). */
 import type { ReactNode } from "react";
 
 type Variant = "success" | "warning" | "error" | "neutral" | "ai" | "brand";

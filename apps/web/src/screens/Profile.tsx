@@ -1,4 +1,4 @@
-/** Profile & Settings — DESIGN.md §2.10. Grouped list, AI Preferences entry, danger zone. */
+/** Profile & Settings - DESIGN.md §2.10. Grouped list, AI Preferences entry, danger zone. */
 import { useNavigate } from "react-router-dom";
 import { SBIAvatar } from "../components/atoms/SBIAvatar";
 import { SectionHeader } from "../components/molecules/SectionHeader";
@@ -57,7 +57,7 @@ export default function Profile() {
           </div>
         ))}
         <p className="mt-4 text-center t-label-sm text-content-tertiary">
-          YONO Adoption Copilot · SYNTHETIC demo · no real SBI assets
+          YONO Adoption Copilot - SYNTHETIC demo - no real SBI assets
         </p>
       </div>
     </div>

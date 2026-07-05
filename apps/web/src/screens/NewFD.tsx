@@ -1,4 +1,4 @@
-/** New FD — DESIGN.md §2.7. Amount + tenure form with live maturity calc + HITL confirm. */
+/** New FD - DESIGN.md §2.7. Amount + tenure form with live maturity calc + HITL confirm. */
 import { useMemo, useState } from "react";
 import { AppBar } from "../components/organisms/AppBar";
 import { ConfirmationSheet } from "../components/organisms/ConfirmationSheet";
@@ -44,7 +44,7 @@ export default function NewFD() {
         <div className="rounded-lg bg-ai-surface p-4 text-center">
           <span className="t-label-sm text-content-tertiary">Maturity value at {rate}% p.a.</span>
           <div className="t-headline text-ai-text">{inr(maturity)}</div>
-          <span className="t-body-sm text-content-secondary">Capital-safe · DICGC insured</span>
+          <span className="t-body-sm text-content-secondary">Capital-safe - DICGC insured</span>
         </div>
         <SBIButton full disabled={amt < (senior ? 10000 : 5000)} onClick={() => setConfirm(true)}>
           Review &amp; confirm

@@ -1,4 +1,4 @@
-/** Splash & Onboarding — DESIGN.md §2.1. Navy, wordmark, tagline, AI pre-warm greeting, skip. */
+/** Splash & Onboarding - DESIGN.md §2.1. Navy, wordmark, tagline, AI pre-warm greeting, skip. */
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";

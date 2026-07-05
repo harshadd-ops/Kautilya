@@ -1,4 +1,4 @@
-/** <SectionHeader> — DESIGN.md §5.2. Uppercase label + optional trailing link. */
+/** <SectionHeader> - DESIGN.md §5.2. Uppercase label + optional trailing link. */
 export function SectionHeader({
   children,
   action,

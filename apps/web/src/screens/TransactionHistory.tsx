@@ -1,5 +1,5 @@
 /**
- * Transaction History — DESIGN.md §2.6 / §8. AISmartSearch (NL), AISummaryBar with AI spend trend,
+ * Transaction History - DESIGN.md §2.6 / §8. AISmartSearch (NL), AISummaryBar with AI spend trend,
  * date-grouped list with inline AITransactionTag. AI fails silent if disabled.
  */
 import { useMemo, useState } from "react";
@@ -19,12 +19,12 @@ interface Row extends Txn {
 }
 
 const TXNS: Row[] = [
-  { id: "t1", merchant: "Salary credit", meta: "NEFT · 27 Jun, 9:00 AM", amount: 64000, icon: "CurrencyInr", date: "Today", category: "Income" },
-  { id: "t2", merchant: "Swiggy", meta: "UPI · 27 Jun, 1:12 PM", amount: -428, icon: "ForkKnife", date: "Today", category: "Food" },
-  { id: "t3", merchant: "Amazon", meta: "Card · 26 Jun, 7:48 PM", amount: -2149, icon: "ShoppingCart", date: "Yesterday", category: "Groceries" },
-  { id: "t4", merchant: "Electricity bill", meta: "BBPS · 26 Jun, 8:00 AM", amount: -1840, icon: "Receipt", date: "Yesterday", category: "Bills" },
-  { id: "t5", merchant: "Tuition fee", meta: "NEFT · 24 Jun", amount: -8000, icon: "GraduationCap", date: "Earlier", category: "Education" },
-  { id: "t6", merchant: "Priya Sharma", meta: "UPI · 23 Jun", amount: -5000, icon: "ArrowsLeftRight", date: "Earlier", category: "Food" },
+  { id: "t1", merchant: "Salary credit", meta: "NEFT - 27 Jun, 9:00 AM", amount: 64000, icon: "CurrencyInr", date: "Today", category: "Income" },
+  { id: "t2", merchant: "Swiggy", meta: "UPI - 27 Jun, 1:12 PM", amount: -428, icon: "ForkKnife", date: "Today", category: "Food" },
+  { id: "t3", merchant: "Amazon", meta: "Card - 26 Jun, 7:48 PM", amount: -2149, icon: "ShoppingCart", date: "Yesterday", category: "Groceries" },
+  { id: "t4", merchant: "Electricity bill", meta: "BBPS - 26 Jun, 8:00 AM", amount: -1840, icon: "Receipt", date: "Yesterday", category: "Bills" },
+  { id: "t5", merchant: "Tuition fee", meta: "NEFT - 24 Jun", amount: -8000, icon: "GraduationCap", date: "Earlier", category: "Education" },
+  { id: "t6", merchant: "Priya Sharma", meta: "UPI - 23 Jun", amount: -5000, icon: "ArrowsLeftRight", date: "Earlier", category: "Food" },
 ];
 
 const FILTERS = ["All", "Credits", "Debits", "Food", "Bills"];
@@ -80,7 +80,7 @@ export default function TransactionHistory() {
                 <Sparkle size={14} weight="fill" /> AI spend trend
               </div>
               <div className="t-body-sm text-content-secondary">
-                In {inr(credits)} · Out {inr(debits)} · net {inr(credits - debits)}
+                In {inr(credits)} - Out {inr(debits)} - net {inr(credits - debits)}
               </div>
             </div>
             <div className="flex h-8 items-end gap-1">

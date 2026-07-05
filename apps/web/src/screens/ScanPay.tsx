@@ -1,5 +1,5 @@
 /**
- * Scan & Pay — real-YONO Bharat QR / UPI scanner. A mock camera viewport with an animated scan
+ * Scan & Pay - real-YONO Bharat QR / UPI scanner. A mock camera viewport with an animated scan
  * frame, plus a "My QR" tab to receive. SYNTHETIC (no real camera access).
  */
 import { motion } from "framer-motion";

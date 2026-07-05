@@ -1,5 +1,5 @@
 /**
- * Icon registry — Phosphor only (skill: NO emojis; the PRD's 🔥 / 🛒 become real icons).
+ * Icon registry - Phosphor only (skill: NO emojis; the PRD's 🔥 / 🛒 become real icons).
  * Standardised weight so the whole UI reads consistently.
  */
 import {

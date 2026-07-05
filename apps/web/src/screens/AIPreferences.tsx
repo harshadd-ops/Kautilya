@@ -1,5 +1,5 @@
 /**
- * AI Preferences — DESIGN.md §2.10 / §8.3 Rule 3. The opt-out path. Turning AI off must leave a
+ * AI Preferences - DESIGN.md §2.10 / §8.3 Rule 3. The opt-out path. Turning AI off must leave a
  * fully working non-AI app (graceful degradation tenet). Toggling here flips the global aiEnabled.
  */
 import { AppBar } from "../components/organisms/AppBar";
@@ -30,7 +30,7 @@ export default function AIPreferences() {
         <div className="mb-4 flex items-start gap-3 rounded-lg border border-ai-border bg-ai-surface p-4">
           <Sparkle size={20} weight="fill" className="text-ai shrink-0" />
           <p className="t-body-sm text-ai-text">
-            AI is additive and always optional. With it off, every screen still works — you just won't
+            AI is additive and always optional. With it off, every screen still works - you just won't
             see insights, tags, or smart search.
           </p>
         </div>
@@ -45,7 +45,7 @@ export default function AIPreferences() {
           <Toggle on={aiEnabled} onChange={setAiEnabled} label="AI smart search" sub="Natural-language transaction search" />
         </div>
         <p className="mt-3 px-1 t-body-sm text-content-tertiary">
-          Confidence threshold 70% · AI never blocks login, transfer, or bill pay · every insight has a
+          Confidence threshold 70% - AI never blocks login, transfer, or bill pay - every insight has a
           “Why am I seeing this?” explanation.
         </p>
       </div>

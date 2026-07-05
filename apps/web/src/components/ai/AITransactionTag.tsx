@@ -1,6 +1,6 @@
 /**
- * <AITransactionTag> — DESIGN.md §8.2. Inline category chip after a merchant name. 18dp,
- * never wraps. Icon-only fallback if space is tight. (No emojis — Phosphor category icons.)
+ * <AITransactionTag> - DESIGN.md §8.2. Inline category chip after a merchant name. 18dp,
+ * never wraps. Icon-only fallback if space is tight. (No emojis - Phosphor category icons.)
  */
 import { PhIcon } from "../../lib/icons";
 

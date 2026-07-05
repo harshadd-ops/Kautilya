@@ -1,7 +1,7 @@
-# The Ontology — the moat
+# The Ontology - the moat
 
 The Ontology of the Customer's Financial Life. Iterated from the master report schema to make
-Persona, AdaptiveUIProfile, Intervention, ConsentArtifact and AuditEvent first-class — so consent and
+Persona, AdaptiveUIProfile, Intervention, ConsentArtifact and AuditEvent first-class - so consent and
 persona-adaptation are structural, not bolted on. Implemented in `apps/api/app/ontology/`.
 
 ## Nodes
@@ -11,7 +11,7 @@ persona-adaptation are structural, not bolted on. Implemented in `apps/api/app/o
 | `Customer` | `customer_id, age_band, segment, dcs, consent_state, dormancy_state, registered_only` |
 | `Persona` *(new)* | `archetype{young_student\|mid_career\|senior}, digital_literacy, risk_appetite, preferred_language, font_scale_pref, cognitive_load_tolerance, vernacular_pref` |
 | `AdaptiveUIProfile` *(derived)* | `density, font_scale, language_register, contrast_mode, max_choices, copy_tone, surfaced_ai_components[]` |
-| `Account` | `account_id, type, balance_band, idle_surplus, kyc_level` (band, not raw — DPDP) |
+| `Account` | `account_id, type, balance_band, idle_surplus, kyc_level` (band, not raw - DPDP) |
 | `Transaction` | `txn_id, type, amount_band, timestamp, channel` |
 | `Goal` | `goal_id, type{retirement\|education\|emergency\|credit_building\|gadget\|income}, target_band, funded_pct` |
 | `LifeEvent` | `event_id, type{salary_credit\|pension_credit\|new_device\|…}` |
@@ -36,8 +36,8 @@ persona-adaptation are structural, not bolted on. Implemented in `apps/api/app/o
 
 ## Governed action verbs
 
-`RecommendSIP · RecommendMicroSIP · OfferTermCover · SuggestFD · SuggestSeniorFD · ReactivateAccount ·
-SimplifyUI · SurfaceKFS · EscalateToRM · SuggestCreditBuilder · ScamShieldAlert`
+`RecommendSIP - RecommendMicroSIP - OfferTermCover - SuggestFD - SuggestSeniorFD - ReactivateAccount -
+SimplifyUI - SurfaceKFS - EscalateToRM - SuggestCreditBuilder - ScamShieldAlert`
 
 Each verb declares (`apps/api/app/spine/nba.py::VERB_CONTRACTS`): its `nba_class`
 (`service|alert|offer|education`), `regulatory_class`
@@ -46,7 +46,7 @@ Each verb declares (`apps/api/app/spine/nba.py::VERB_CONTRACTS`): its `nba_class
 
 ## Signature reasoning paths (the demo spine)
 
-**Rajesh — the money shot:**
+**Rajesh - the money shot:**
 ```
 (:Customer{dormancy:'dormant'})-[:HAS]->(:Account{idle_surplus:true})
   -[:GENERATED]->(:Transaction)-[:TRIGGERED_BY]->(:LifeEvent{type:'salary_credit'})
@@ -57,7 +57,7 @@ WHERE eligible AND reg_class='distribution_allowed'   ⇒ RecommendSIP
 **Aarav:** `age 18-24 → gadget/credit_building goal → Micro-SIP(min_ticket 100) + CreditBuilder`
 **Mohan:** `age 65+ → pension_credit → income goal → SuggestSeniorFD + ScamShieldAlert + EscalateToRM`
 
-The traversal shape is **identical** across personas — only the surfaced action's presentation adapts.
+The traversal shape is **identical** across personas - only the surfaced action's presentation adapts.
 
 ## Reject paths (demonstrable)
 

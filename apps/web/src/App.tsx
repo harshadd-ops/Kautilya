@@ -27,7 +27,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/app/home" replace />} />
 
-      {/* The phone app — DemoShell renders the persona stage; screens render inside the phone. */}
+      {/* The phone app - DemoShell renders the persona stage; screens render inside the phone. */}
       <Route path="/app" element={<DemoShell />}>
         <Route index element={<Navigate to="home" replace />} />
         <Route path="home" element={<Home />} />

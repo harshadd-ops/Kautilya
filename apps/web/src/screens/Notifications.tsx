@@ -1,5 +1,5 @@
 /**
- * Notifications — DESIGN.md §2.9 / §8.4 Pattern 4. AI priority ranking (Critical → Informational →
+ * Notifications - DESIGN.md §2.9 / §8.4 Pattern 4. AI priority ranking (Critical → Informational →
  * Promotional), AI bundling, AI notification visual treatment. Grouped Today / Earlier.
  */
 import { NotificationRow, type Notif } from "../components/molecules/NotificationRow";
@@ -8,7 +8,7 @@ import { useUiStore } from "../store/uiStore";
 
 const TODAY: Notif[] = [
   { id: "n1", kind: "security", title: "New device login", body: "Login from a new device in Mumbai at 2:14 PM. Was this you?", time: "2:14 PM", unread: true },
-  { id: "n2", kind: "ai", title: "AI bundled your spending", body: "5 transactions totalling ₹2,340 today — tap to review categories.", time: "1:30 PM" },
+  { id: "n2", kind: "ai", title: "AI bundled your spending", body: "5 transactions totalling ₹2,340 today - tap to review categories.", time: "1:30 PM" },
   { id: "n3", kind: "transaction", title: "Salary credited", body: "₹64,000 credited to Savings ••• 4521.", time: "9:00 AM", unread: true },
 ];
 const EARLIER: Notif[] = [

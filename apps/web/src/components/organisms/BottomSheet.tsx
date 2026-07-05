@@ -1,5 +1,5 @@
 /**
- * <BottomSheet> — DESIGN.md §5.3. Scrim + slide-up sheet, role=dialog/aria-modal, focus on open,
+ * <BottomSheet> - DESIGN.md §5.3. Scrim + slide-up sheet, role=dialog/aria-modal, focus on open,
  * Escape closes, focus trap. Rendered within the phone frame (not a global portal).
  */
 import { AnimatePresence, motion } from "framer-motion";
@@ -16,7 +16,7 @@ export function BottomSheet({
 }: {
   open: boolean;
   onClose: () => void;
-  title?: string;
+  title?: React.ReactNode;
   children: React.ReactNode;
   height?: string;
 }) {

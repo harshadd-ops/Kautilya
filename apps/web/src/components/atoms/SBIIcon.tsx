@@ -1,4 +1,4 @@
-/** <SBIIcon> — thin wrapper over the Phosphor registry (DESIGN.md §5.1 / Appendix C). */
+/** <SBIIcon> - thin wrapper over the Phosphor registry (DESIGN.md §5.1 / Appendix C). */
 import type { IconWeight } from "@phosphor-icons/react";
 import { PhIcon } from "../../lib/icons";
 

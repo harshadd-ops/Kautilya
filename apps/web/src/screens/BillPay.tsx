@@ -1,7 +1,7 @@
 /**
- * Bill Pay & Recharge — real-YONO BBPS billers + mobile/FASTag recharge.
- * MY AI layer: bill auto-reminders + bundling (DESIGN.md §8.4 / pain-point #12) — "3 bills due this
- * week, ₹X total" — and a one-tap pay-all. SYNTHETIC.
+ * Bill Pay & Recharge - real-YONO BBPS billers + mobile/FASTag recharge.
+ * MY AI layer: bill auto-reminders + bundling (DESIGN.md §8.4 / pain-point #12) - "3 bills due this
+ * week, ₹X total" - and a one-tap pay-all. SYNTHETIC.
  */
 import { useState } from "react";
 import { AppBar } from "../components/organisms/AppBar";

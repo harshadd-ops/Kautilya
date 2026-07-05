@@ -1,5 +1,5 @@
 /**
- * Transfer (YONO Pay) — DESIGN.md §2.4 / §5.4. 4-step flow: recipient → amount → confirm → result.
+ * Transfer (YONO Pay) - DESIGN.md §2.4 / §5.4. 4-step flow: recipient → amount → confirm → result.
  * AI suggestion chip (§8.4 Pattern 1) appears once enough digits are typed. Confirm is the HITL gate.
  */
 import { motion } from "framer-motion";
@@ -97,7 +97,7 @@ export default function Transfer() {
           Proceed to pay {amt ? inr(amt) : ""}
         </SBIButton>
         <p className="text-center t-label-sm text-content-tertiary">
-          Limit ₹1,00,000 / day · {mode}
+          Limit ₹1,00,000 / day - {mode}
         </p>
       </div>
 
@@ -107,7 +107,7 @@ export default function Transfer() {
         title="Confirm payment"
         headline={inr(amt)}
         rows={[
-          { k: "To", v: recipient || "—" },
+          { k: "To", v: recipient || "-" },
           { k: "Mode", v: mode },
           { k: "From", v: "Savings ••• 4521" },
           { k: "Charges", v: "₹0" },

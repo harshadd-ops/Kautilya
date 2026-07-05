@@ -1,5 +1,5 @@
 /**
- * <CarouselBanner> — DESIGN.md §5.3. Full-bleed, dot indicators, 5s auto-advance paused on
+ * <CarouselBanner> - DESIGN.md §5.3. Full-bleed, dot indicators, 5s auto-advance paused on
  * reduced-motion. Promotions are YONO-native (never AI purple).
  */
 import { AnimatePresence, motion } from "framer-motion";
@@ -14,7 +14,7 @@ interface Slide {
 }
 
 const SLIDES: Slide[] = [
-  { id: "s1", title: "Pre-approved personal loan", body: "Up to ₹8,40,000 · instant disbursal", from: "#1A3F7A", to: "#2563EB" },
+  { id: "s1", title: "Pre-approved personal loan", body: "Up to ₹8,40,000 - instant disbursal", from: "#1A3F7A", to: "#2563EB" },
   { id: "s2", title: "0% forex markup card", body: "For your next trip abroad", from: "#00838F", to: "#1A3F7A" },
   { id: "s3", title: "Earn 7.5% on Senior FD", body: "Assured returns for 60+", from: "#15347A", to: "#3949AB" },
 ];

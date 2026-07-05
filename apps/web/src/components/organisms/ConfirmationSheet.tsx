@@ -1,5 +1,5 @@
 /**
- * <ConfirmationSheet> — DESIGN.md §5.3 (critical path). The human-in-the-loop gate for
+ * <ConfirmationSheet> - DESIGN.md §5.3 (critical path). The human-in-the-loop gate for
  * money-touching actions: amount prominent, summary table, security indicator, MPIN/biometric
  * confirm. On approve it shows the success tick (DESIGN.md §6.3) then resolves.
  */

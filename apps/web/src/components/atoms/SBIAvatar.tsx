@@ -1,4 +1,4 @@
-/** <SBIAvatar> — DESIGN.md §5.1. Initials on brand-50; sizes 32/40/48/64. No "egg" icons. */
+/** <SBIAvatar> - DESIGN.md §5.1. Initials on brand-50; sizes 32/40/48/64. No "egg" icons. */
 const SIZES = { sm: 32, md: 40, lg: 48, xl: 64 } as const;
 
 function initials(name: string): string {

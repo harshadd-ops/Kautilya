@@ -1,5 +1,5 @@
 /**
- * <AISmartSearch> — DESIGN.md §8.2. Natural-language search over transactions. Suggested-query
+ * <AISmartSearch> - DESIGN.md §8.2. Natural-language search over transactions. Suggested-query
  * chips before typing, 300ms debounce + shimmer while "interpreting", filtered results upstream.
  */
 import { useEffect, useState } from "react";

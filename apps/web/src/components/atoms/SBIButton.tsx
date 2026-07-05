@@ -1,6 +1,6 @@
 /**
- * <SBIButton> — DESIGN.md §5.1. Variants: primary | secondary | ghost | danger | ai.
- * States: default · hover · pressed (scale 0.97) · focused (ring) · disabled.
+ * <SBIButton> - DESIGN.md §5.1. Variants: primary | secondary | ghost | danger | ai.
+ * States: default - hover - pressed (scale 0.97) - focused (ring) - disabled.
  * The `ai` variant is the ONLY button permitted purple (DESIGN.md §8.3 Rule 5).
  */
 import { motion } from "framer-motion";
@@ -9,7 +9,7 @@ import { PhIcon } from "../../lib/icons";
 
 type Variant = "primary" | "secondary" | "ghost" | "danger" | "ai";
 
-// framer-motion's drag/animation handlers clash with React's native ones — drop them.
+// framer-motion's drag/animation handlers clash with React's native ones - drop them.
 type NativeButtonProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
   "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"

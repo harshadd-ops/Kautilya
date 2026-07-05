@@ -1,5 +1,5 @@
 /**
- * YONO Pay — the real-YONO payments hub. Scan & Pay (Bharat QR / UPI), Quick Pay (to a mobile
+ * YONO Pay - the real-YONO payments hub. Scan & Pay (Bharat QR / UPI), Quick Pay (to a mobile
  * number, no account needed), Send to account, Bharat QR, Bill Pay, Mobile recharge, YONO Cash.
  *
  * MY AI layer: a persona-adaptive recipient suggestion chip (DESIGN.md §8.4 Pattern 1) + the
@@ -24,10 +24,10 @@ export default function PayHub() {
   const ACTIONS = [
     { icon: "QrCode", label: "Scan & Pay", sub: "Bharat QR / UPI", to: "/app/pay/scan" },
     { icon: "Lightning", label: "Quick Pay", sub: "To a mobile number", to: "/app/pay/send" },
-    { icon: "ArrowsLeftRight", label: "Send to account", sub: "UPI · NEFT · IMPS", to: "/app/pay/send" },
+    { icon: "ArrowsLeftRight", label: "Send to account", sub: "UPI - NEFT - IMPS", to: "/app/pay/send" },
     { icon: "CurrencyInr", label: "YONO Cash", sub: "Cardless withdrawal", to: "/app/yono-cash", accent: "credit" as const },
     { icon: "Receipt", label: "Pay Bills", sub: "Electricity, DTH…", to: "/app/bills" },
-    { icon: "Lightning", label: "Recharge", sub: "Mobile · FASTag", to: "/app/bills" },
+    { icon: "Lightning", label: "Recharge", sub: "Mobile - FASTag", to: "/app/bills" },
   ];
 
   return (
@@ -59,7 +59,7 @@ export default function PayHub() {
           >
             <Sparkle size={16} weight="fill" className="text-ai shrink-0" />
             <span className="t-body-sm text-ai-text">
-              It's the 1st — you usually send <strong>₹5,000 rent to Priya Sharma</strong> today. Pay now?
+              It's the 1st - you usually send <strong>₹5,000 rent to Priya Sharma</strong> today. Pay now?
             </span>
             <span className="ml-auto t-label-sm text-ai">Pay ↗</span>
           </button>
@@ -69,7 +69,7 @@ export default function PayHub() {
           <SectionHeader action={{ label: "Manage", onClick: () => nav("/app/profile") }}>UPI</SectionHeader>
           <div className="rounded-lg bg-bg-surface p-4 shadow-e1">
             <div className="t-body text-content-primary">{(customer?.display_name?.split(" ")[0] || "user").toLowerCase()}@sbi</div>
-            <div className="t-body-sm text-content-tertiary">Primary UPI ID · linked to Savings ••• 4521</div>
+            <div className="t-body-sm text-content-tertiary">Primary UPI ID - linked to Savings ••• 4521</div>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 /**
- * YONO Rewardz — real-YONO reward points.
+ * YONO Rewardz - real-YONO reward points.
  * MY AI layer: a variable-reward "ways to earn" that pays for completing *adoption* behaviours
- * (start a SIP, set up a bill auto-pay) — never for spending — tied to the DCS streak. SYNTHETIC.
+ * (start a SIP, set up a bill auto-pay) - never for spending - tied to the DCS streak. SYNTHETIC.
  */
 import { AppBar } from "../components/organisms/AppBar";
 import { SectionHeader } from "../components/molecules/SectionHeader";

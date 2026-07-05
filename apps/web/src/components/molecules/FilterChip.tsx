@@ -1,4 +1,4 @@
-/** <FilterChip> — DESIGN.md §5.2. 48dp tap target (chip + padding, a11y §7.2 fix). */
+/** <FilterChip> - DESIGN.md §5.2. 48dp tap target (chip + padding, a11y §7.2 fix). */
 import { PhIcon } from "../../lib/icons";
 
 export function FilterChip({

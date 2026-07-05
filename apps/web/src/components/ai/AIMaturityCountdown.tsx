@@ -1,5 +1,5 @@
 /**
- * <AIMaturityCountdown> — DESIGN.md §8.2. FD maturity ribbon (on a tile) or reminder card.
+ * <AIMaturityCountdown> - DESIGN.md §8.2. FD maturity ribbon (on a tile) or reminder card.
  * Amber treatment, schedule icon. Surfaced for mid_career + senior personas.
  */
 import { PhIcon } from "../../lib/icons";
@@ -12,7 +12,7 @@ export function AIMaturityRibbon({ days = 7 }: { days?: number }) {
       style={{ background: "var(--colour-amber-50)", color: "var(--colour-amber-900)" }}
     >
       <PhIcon name="WarningCircle" size={14} weight="fill" />
-      Matures in {days} days · Renew or withdraw?
+      Matures in {days} days - Renew or withdraw?
     </div>
   );
 }
@@ -31,13 +31,13 @@ export function AIMaturityCountdownCard({
   return (
     <section className="rounded-lg border border-ai-border bg-bg-surface p-4 shadow-e2">
       <div className="flex items-center gap-1.5 t-label-sm text-ai">
-        <PhIcon name="Sparkle" size={14} weight="fill" /> AI · FD Maturity
+        <PhIcon name="Sparkle" size={14} weight="fill" /> AI - FD Maturity
       </div>
       <div className="mt-1 t-title-sm text-content-primary">
         Your FD matures in {days} days
       </div>
       <div className="mt-1 t-body-sm text-content-secondary">
-        Maturity value {inr(amount)} · prevailing rate 0.25% higher at renewal.
+        Maturity value {inr(amount)} - prevailing rate 0.25% higher at renewal.
       </div>
       <div className="mt-3 flex gap-2">
         <button onClick={onRenew} className="min-h-[44px] rounded-sm bg-brand px-4 t-label text-white">

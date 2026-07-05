@@ -44,48 +44,52 @@ export function AdminView() {
   }
 
   return (
-    <div className="grid gap-8 lg:grid-cols-2 p-6 max-w-7xl mx-auto">
+    <div className="grid gap-8 lg:grid-cols-2 max-w-7xl mx-auto">
       <div className="flex flex-col gap-8">
-        <OpsCard className="shadow-sm hover:shadow-md transition-shadow">
-          <SectionTitle eyebrow="Governance" title="Model Register (Live Audit)" />
+        <OpsCard>
+          <SectionTitle 
+            eyebrow="Governance" 
+            title="Model Register (Live Audit)" 
+            desc="Immutable ledger of every AI decision. Tracks verb, regulatory classification, and outcome (confirmed/rejected/blocked) for complete transparency."
+          />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by audit_id, verb, reg_class…"
-            className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-brand focus:ring-1 focus:ring-brand mb-4 transition-all"
+            className="w-full rounded-[10px] border border-black/[0.08] bg-[#F2F2F7] px-4 py-2.5 text-[15px] outline-none focus:border-[#007AFF] focus:ring-1 focus:ring-[#007AFF] mb-4 transition-all text-[#1C1C1E] placeholder-[#8E8E93]"
           />
-          <div className="overflow-x-auto rounded-xl border border-slate-100 bg-white">
+          <div className="overflow-x-auto rounded-[10px] border border-black/[0.06] bg-white">
             <table className="w-full text-left text-sm whitespace-nowrap">
-              <thead className="bg-slate-50 text-[11px] uppercase tracking-wider text-slate-500 font-semibold border-b border-slate-100">
+              <thead className="bg-[#F2F2F7] text-xs uppercase tracking-wider text-[#8E8E93] font-semibold border-b border-black/[0.06]">
                 <tr>
                   {["audit_id", "verb", "reg_class", "decision"].map((h) => (
                     <th key={h} className="px-5 py-3">{h}</th>
                   ))}
                 </tr>
               </thead>
-              <tbody className="font-mono text-xs text-slate-700 divide-y divide-slate-50">
+              <tbody className="divide-y divide-black/[0.04]">
                 {auditLogs
                   .filter((r) => JSON.stringify(r).toLowerCase().includes(query.toLowerCase()))
                   .map((log, i) => (
-                    <tr key={log.event_id || i} className="hover:bg-slate-50 transition-colors">
-                      <td className="px-5 py-3 text-slate-500 truncate max-w-[120px]" title={log.event_id}>{log.event_id}</td>
-                      <td className="px-5 py-3 font-medium text-slate-800">{log.verb || "—"}</td>
-                      <td className="px-5 py-3 text-slate-500">{log.reg_class || "—"}</td>
+                    <tr key={log.event_id || i} className="hover:bg-black/[0.02] transition-colors">
+                      <td className="px-5 py-3 font-mono text-xs text-[#8E8E93] truncate max-w-[120px]" title={log.event_id}>{log.event_id}</td>
+                      <td className="px-5 py-3 font-medium text-[#1C1C1E]">{log.verb || "-"}</td>
+                      <td className="px-5 py-3 text-[#8E8E93]">{log.reg_class || "-"}</td>
                       <td className="px-5 py-3">
-                        <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium tracking-wide ${
-                          log.outcome === "rejected" ? "bg-red-50 text-red-700" : 
-                          log.outcome === "confirmed" ? "bg-emerald-50 text-emerald-700" : 
-                          "bg-blue-50 text-blue-700"
+                        <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold tracking-wide uppercase ${
+                          log.outcome === "rejected" ? "bg-[#FF3B30]/10 text-[#FF3B30]" : 
+                          log.outcome === "confirmed" ? "bg-[#34C759]/10 text-[#34C759]" : 
+                          "bg-[#007AFF]/10 text-[#007AFF]"
                         }`}>
                           {log.outcome}
                         </span>
-                        {log.reason_code && <span className="ml-2 text-[10px] text-slate-400">· {log.reason_code}</span>}
+                        {log.reason_code && <span className="ml-2 text-xs text-[#8E8E93]">- {log.reason_code}</span>}
                       </td>
                     </tr>
                   ))}
                 {auditLogs.length === 0 && (
                   <tr>
-                    <td colSpan={4} className="px-5 py-8 text-center text-slate-400">No logs found</td>
+                    <td colSpan={4} className="px-5 py-8 text-center text-[#8E8E93] text-[15px]">No telemetry found</td>
                   </tr>
                 )}
               </tbody>
@@ -95,24 +99,25 @@ export function AdminView() {
       </div>
 
       <div className="flex flex-col gap-8">
-        <OpsCard className="shadow-sm">
-          <SectionTitle eyebrow="DPDP" title="Customer Consent Toggles (Rajesh)" />
-          <p className="text-xs text-slate-500 mb-6 leading-relaxed">
-            Live demonstration of the Policy Engine. Toggling these will instantly grant or revoke DPDP consent for Rajesh in the Knowledge Graph, blocking or enabling governed actions.
-          </p>
-          <div className="flex flex-col gap-4">
+        <OpsCard>
+          <SectionTitle 
+            eyebrow="DPDP" 
+            title="Customer Consent Toggles (Rajesh)" 
+            desc="Live demonstration of the Policy Engine. Toggling these instantly injects or revokes DPDP consent nodes in the Knowledge Graph, blocking or enabling governed actions downstream."
+          />
+          <div className="flex flex-col gap-3">
             {Object.entries(rajeshConsents).map(([purpose, granted]) => (
-              <div key={purpose} className="flex items-center justify-between p-3 rounded-lg border border-slate-100 hover:border-slate-200 transition-colors bg-slate-50/50">
-                <span className="font-mono text-sm text-slate-700">{purpose}</span>
+              <div key={purpose} className="flex items-center justify-between p-3 rounded-[10px] border border-black/[0.04] hover:bg-black/[0.02] transition-colors bg-[#F2F2F7]/50">
+                <span className="text-[15px] font-medium text-[#1C1C1E]">{purpose}</span>
                 <button
                   onClick={() => toggleConsent(purpose)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 ${
-                    granted ? 'bg-emerald-500' : 'bg-slate-300'
+                  className={`relative inline-flex h-[28px] w-[50px] items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#007AFF] focus:ring-offset-1 ${
+                    granted ? 'bg-[#34C759]' : 'bg-[#E5E5EA]'
                   }`}
                 >
                   <span
-                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                      granted ? 'translate-x-6' : 'translate-x-1'
+                    className={`inline-block h-6 w-6 transform rounded-full bg-white shadow-[0_2px_4px_rgba(0,0,0,0.15)] transition-transform ${
+                      granted ? 'translate-x-[24px]' : 'translate-x-0.5'
                     }`}
                   />
                 </button>
@@ -121,18 +126,22 @@ export function AdminView() {
           </div>
         </OpsCard>
 
-        <OpsCard className="shadow-sm">
-          <SectionTitle eyebrow="Governance" title="Global Kill-switch" />
+        <OpsCard>
+          <SectionTitle 
+            eyebrow="Governance" 
+            title="Global Kill-switch" 
+            desc="Direct tactical overrides. Disabling a verb immediately prevents the engine from generating or surfacing that class of action globally."
+          />
           <div className="grid grid-cols-2 gap-3 mt-4">
             {NUDGE_TYPES.map((v) => {
               const off = kill[v];
               return (
-                <div key={v} className="flex flex-col gap-3 p-4 rounded-xl border border-slate-100 bg-white">
-                  <span className="font-mono text-xs text-slate-600 truncate" title={v}>{v}</span>
+                <div key={v} className="flex flex-col gap-2 p-3 rounded-[10px] border border-black/[0.06] bg-white">
+                  <span className="font-mono text-xs text-[#8E8E93] truncate tracking-wide" title={v}>{v}</span>
                   <button
                     onClick={() => setKill((k) => ({ ...k, [v]: !k[v] }))}
-                    className={`w-full rounded-lg px-3 py-2 text-xs font-semibold tracking-wide transition-colors ${
-                      off ? "bg-red-50 text-red-600 border border-red-100" : "bg-emerald-50 text-emerald-600 border border-emerald-100 hover:bg-emerald-100"
+                    className={`w-full rounded-[6px] px-2 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${
+                      off ? "bg-[#FF3B30]/10 text-[#FF3B30]" : "bg-[#34C759]/10 text-[#34C759] hover:bg-[#34C759]/20"
                     }`}
                   >
                     {off ? "DISABLED" : "LIVE"}
@@ -143,19 +152,23 @@ export function AdminView() {
           </div>
         </OpsCard>
 
-        <OpsCard className="shadow-sm">
-          <SectionTitle eyebrow="Health" title="Engine Status" />
-          <div className="grid grid-cols-2 gap-y-6 gap-x-4">
+        <OpsCard>
+          <SectionTitle 
+            eyebrow="Health" 
+            title="Engine Status" 
+            desc="Real-time sub-system diagnostics and latency metrics."
+          />
+          <div className="grid grid-cols-2 gap-y-5 gap-x-4">
             {[
-              ["Spine latency p95", "82 ms", "bg-emerald-50 text-emerald-600"],
-              ["Explainer", "template · healthy", "bg-emerald-50 text-emerald-600"],
-              ["Graph backend", "embedded · in-proc", "bg-blue-50 text-blue-600"],
-              ["Audit store", "sqlite · ok", "bg-blue-50 text-blue-600"],
+              ["Spine latency p95", "82 ms", "text-[#34C759] bg-[#34C759]/10"],
+              ["Explainer", "template - healthy", "text-[#34C759] bg-[#34C759]/10"],
+              ["Graph backend", "embedded - in-proc", "text-[#007AFF] bg-[#007AFF]/10"],
+              ["Audit store", "sqlite - ok", "text-[#007AFF] bg-[#007AFF]/10"],
             ].map(([k, v, badgeClass]) => (
               <div key={k} className="flex flex-col gap-1.5">
-                <div className="text-[10px] uppercase tracking-wider text-slate-500 font-medium">{k}</div>
+                <div className="text-xs uppercase tracking-wider text-[#8E8E93] font-semibold">{k}</div>
                 <div className="flex items-center">
-                  <span className={`inline-flex px-2 py-0.5 rounded text-[11px] font-mono font-medium ${badgeClass}`}>
+                  <span className={`inline-flex px-2 py-0.5 rounded-[4px] text-[11px] font-mono font-bold uppercase tracking-widest ${badgeClass}`}>
                     {v}
                   </span>
                 </div>

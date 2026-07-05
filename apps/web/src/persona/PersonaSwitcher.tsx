@@ -1,6 +1,6 @@
 /**
- * <PersonaSwitcher> — the demo control (BUILD_PROMPT §7.4). A segmented control (AI-purple accent)
- * that swaps the active customer_id. It holds NO business logic — the backend re-derives the
+ * <PersonaSwitcher> - the demo control (BUILD_PROMPT §7.4). A segmented control (AI-purple accent)
+ * that swaps the active customer_id. It holds NO business logic - the backend re-derives the
  * profile + next-best-action. The "Show reasoning path" toggle proves governance is constant while
  * presentation adapts.
  */
@@ -10,9 +10,9 @@ import { Sparkle } from "../lib/icons";
 import { useUiStore } from "../store/uiStore";
 
 const PERSONAS: { id: HeroId; name: string; tag: string; sub: string }[] = [
-  { id: "cust_rajesh", name: "Rajesh, 42", tag: "Mid-career", sub: "Idle surplus · retirement" },
-  { id: "cust_aarav", name: "Aarav, 21", tag: "Student", sub: "Micro-SIP · build credit" },
-  { id: "cust_mohan", name: "Mohan, 68", tag: "Senior", sub: "Senior FD · scam-shield" },
+  { id: "cust_rajesh", name: "Rajesh, 42", tag: "Mid-career", sub: "Idle surplus - retirement" },
+  { id: "cust_aarav", name: "Aarav, 21", tag: "Student", sub: "Micro-SIP - build credit" },
+  { id: "cust_mohan", name: "Mohan, 68", tag: "Senior", sub: "Senior FD - scam-shield" },
 ];
 
 export function PersonaSwitcher() {
@@ -25,7 +25,7 @@ export function PersonaSwitcher() {
     <div className="w-[320px] text-white">
       <div className="mb-3 flex items-center gap-2">
         <Sparkle size={18} weight="fill" className="text-ai-secondary" />
-        <span className="t-label uppercase tracking-wider text-white/70">Demo · Persona engine</span>
+        <span className="t-label uppercase tracking-wider text-white/70">Demo - Persona engine</span>
       </div>
 
       <div className="flex flex-col gap-2">
@@ -50,7 +50,7 @@ export function PersonaSwitcher() {
               <span className="relative min-w-0">
                 <span className="block text-sm font-semibold">{p.name}</span>
                 <span className="block text-xs text-white/55">
-                  {p.tag} · {p.sub}
+                  {p.tag} - {p.sub}
                 </span>
               </span>
             </button>
@@ -84,7 +84,7 @@ export function PersonaSwitcher() {
 
       <p className="mt-4 t-body-sm leading-relaxed text-white/45">
         One ontology, one governed engine, three lives. The reasoning path is identical across all
-        three — only the surfaced action and its presentation adapt.
+        three - only the surfaced action and its presentation adapt.
       </p>
     </div>
   );

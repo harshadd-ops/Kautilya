@@ -1,5 +1,5 @@
 /**
- * <SBIInput> — DESIGN.md §5.1. M3 outlined field, label ABOVE input (skill Rule 6), helper +
+ * <SBIInput> - DESIGN.md §5.1. M3 outlined field, label ABOVE input (skill Rule 6), helper +
  * error slots in markup, focus/error states. 56dp height, 48dp+ touch.
  */
 import type { InputHTMLAttributes, ReactNode } from "react";

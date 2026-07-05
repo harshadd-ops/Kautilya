@@ -1,6 +1,6 @@
 /**
- * <AIAlertBanner> — DESIGN.md §8.2. High-priority anomaly / scam-shield. Amber (warning) or red
- * (critical). NOT dismissible — user must choose. Pushes content down (does not overlay).
+ * <AIAlertBanner> - DESIGN.md §8.2. High-priority anomaly / scam-shield. Amber (warning) or red
+ * (critical). NOT dismissible - user must choose. Pushes content down (does not overlay).
  * For the senior persona this is the Scam-Shield surface.
  */
 import { motion } from "framer-motion";

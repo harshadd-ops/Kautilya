@@ -1,5 +1,5 @@
 /**
- * <DCSRing> — the Digital Confidence Score surfaced to the user as a gamified ring
+ * <DCSRing> - the Digital Confidence Score surfaced to the user as a gamified ring
  * (BUILD_PROMPT §6.1). Shown for the student persona (streak energy); the same score reads to
  * execs as cross-sell-readiness on /ops.
  */
@@ -34,7 +34,7 @@ export function DCSRing({ dcs, streak = 4 }: { dcs: DcsBreakdown; streak?: numbe
           Financial confidence
         </div>
         <div className="mt-0.5 inline-flex items-center gap-1 t-body-sm text-[var(--colour-amber-900)]">
-          <Fire size={16} weight="fill" /> {streak}-week streak · keep it alive
+          <Fire size={16} weight="fill" /> {streak}-week streak - keep it alive
         </div>
         <div className="mt-2 flex gap-1.5">
           {(["payments", "savings", "investments", "credit"] as const).map((p) => (

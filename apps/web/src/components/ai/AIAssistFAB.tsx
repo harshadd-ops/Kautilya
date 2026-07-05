@@ -1,5 +1,5 @@
 /**
- * <AIAssistFAB> — DESIGN.md §8.2. Floating AI entry, above the bottom nav. Pulse rings on first
+ * <AIAssistFAB> - DESIGN.md §8.2. Floating AI entry, above the bottom nav. Pulse rings on first
  * mount (once). Purple (AI-exclusive). aria-label per spec.
  */
 import { motion } from "framer-motion";

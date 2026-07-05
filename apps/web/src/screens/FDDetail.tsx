@@ -1,4 +1,4 @@
-/** FD Detail — DESIGN.md §2.7. Single FD with AIMaturityCountdown reminder card. */
+/** FD Detail - DESIGN.md §2.7. Single FD with AIMaturityCountdown reminder card. */
 import { useNavigate } from "react-router-dom";
 import { AIMaturityCountdownCard } from "../components/ai/AIMaturityCountdown";
 import { AppBar } from "../components/organisms/AppBar";

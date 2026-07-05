@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 /**
- * Tailwind preset — every theme value maps to a CSS var from src/tokens/tokens.css
+ * Tailwind preset - every theme value maps to a CSS var from src/tokens/tokens.css
  * (which reproduces DESIGN.md §4). Components reference `bg-brand`, `text-content-secondary`,
  * `shadow-e3`, `rounded-lg` … never a raw hex or px. DESIGN.md remains canonical.
  */
@@ -38,7 +38,7 @@ export default {
           border: "var(--colour-ai-border)",
           text: "var(--colour-ai-on-surface)",
         },
-        // spending categories (AISpendingSummaryWidget — DESIGN.md §8.2)
+        // spending categories (AISpendingSummaryWidget - DESIGN.md §8.2)
         cat: {
           food: "#FF7043",
           bills: "var(--colour-brand-primary)",

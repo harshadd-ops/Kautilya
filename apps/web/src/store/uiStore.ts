@@ -1,5 +1,5 @@
 /**
- * Zustand — UI STATE ONLY (BUILD_PROMPT §3). No ontology, no NBA, no profile derivation lives
+ * Zustand - UI STATE ONLY (BUILD_PROMPT §3). No ontology, no NBA, no profile derivation lives
  * here. The PersonaSwitcher just changes `activeCustomerId`; the backend re-derives everything.
  */
 import { create } from "zustand";

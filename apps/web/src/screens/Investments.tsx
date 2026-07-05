@@ -1,5 +1,5 @@
 /**
- * Investments — the real-YONO Invest hub: Mutual Funds / SIP, Fixed Deposits, Insurance (life &
+ * Investments - the real-YONO Invest hub: Mutual Funds / SIP, Fixed Deposits, Insurance (life &
  * general), NPS, Demat / Stocks.
  *
  * MY AI layer: the persona's engine-authored next-best-action (RecommendSIP / RecommendMicroSIP /
@@ -55,11 +55,11 @@ export default function Investments() {
           <span className="t-label-sm uppercase text-white/70">Investment portfolio</span>
           <div className="mt-1 t-headline">{inr(customer?.products_per_customer ? 412300 : 389600)}</div>
           <span className="t-body-sm text-white/70">
-            {customer?.products_per_customer ?? 0} product(s) · investment readiness {customer?.dcs.investments ?? 0}/100
+            {customer?.products_per_customer ?? 0} product(s) - investment readiness {customer?.dcs.investments ?? 0}/100
           </span>
         </div>
 
-        {/* MY AI nudge — surfaces the persona's authored action; completes via HITL */}
+        {/* MY AI nudge - surfaces the persona's authored action; completes via HITL */}
         {aiEnabled && action && nba?.content && nba.decision === "recommend" && !done && (
           <AIInsightCard
             content={{ ...nba.content, primary_cta: `Start ${action.product_name}` }}
@@ -91,7 +91,7 @@ export default function Investments() {
         <ConfirmationSheet
           open={confirmOpen}
           onClose={() => setConfirmOpen(false)}
-          title="Confirm — human in the loop"
+          title="Confirm - human in the loop"
           headline={inr(action.suggested_ticket ?? action.min_ticket ?? 0)}
           rows={[
             { k: "Product", v: action.product_name ?? action.verb },

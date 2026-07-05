@@ -1,5 +1,5 @@
 /**
- * TS twin of apps/api/app/contracts.py — the shared seam. Hand-mirrored (a real build would
+ * TS twin of apps/api/app/contracts.py - the shared seam. Hand-mirrored (a real build would
  * generate this via openapi-typescript). The frontend can construct NONE of these from
  * scratch: it requests them, renders them, and POSTs the human's approval back.
  */

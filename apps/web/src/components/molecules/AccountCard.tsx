@@ -1,5 +1,5 @@
 /**
- * <AccountCard> — DESIGN.md §5.2. Gradient brand card, balance + visibility toggle, mono
+ * <AccountCard> - DESIGN.md §5.2. Gradient brand card, balance + visibility toggle, mono
  * account/IFSC, optional action row. The eye toggle announces state (a11y §7.3).
  */
 import { motion } from "framer-motion";

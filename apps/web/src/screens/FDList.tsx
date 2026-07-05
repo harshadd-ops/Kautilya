@@ -1,5 +1,5 @@
 /**
- * Fixed Deposits — DESIGN.md §2.7. Portfolio card, FD tiles with rate badge + AIMaturityRibbon,
+ * Fixed Deposits - DESIGN.md §2.7. Portfolio card, FD tiles with rate badge + AIMaturityRibbon,
  * new-FD CTA. Senior persona gets the senior-citizen FD highlighted (0.50% uplift).
  */
 import { useNavigate } from "react-router-dom";
@@ -31,18 +31,18 @@ export default function FDList() {
         >
           <span className="t-label-sm uppercase text-white/70">Total FD portfolio</span>
           <div className="mt-1 t-headline">{inr(389600)}</div>
-          <span className="t-body-sm text-white/70">2 active deposits · avg 6.9%</span>
+          <span className="t-body-sm text-white/70">2 active deposits - avg 6.9%</span>
         </div>
 
         {senior && (
           <div className="rounded-lg border-2 border-ai-border bg-ai-surface p-4">
             <div className="flex items-center justify-between">
               <span className="t-title-sm text-ai-text">Senior Citizen FD</span>
-              <SBIBadge variant="success">7.50% · +0.50%</SBIBadge>
+              <SBIBadge variant="success">7.50% - +0.50%</SBIBadge>
             </div>
             <p className="mt-1 t-body text-content-secondary">
               Higher assured rate for 60+. Capital-safe, DICGC insured. A branch manager can set it up
-              for you — no app steps needed.
+              for you - no app steps needed.
             </p>
             <SBIButton variant="ai" full className="mt-3" onClick={() => nav("/app/fd/new")}>
               Open Senior Citizen FD

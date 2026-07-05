@@ -1,5 +1,5 @@
 /**
- * Login & MPIN — DESIGN.md §2.2. 6-dot MPIN, custom numpad, error shake, biometric, AI login-risk
+ * Login & MPIN - DESIGN.md §2.2. 6-dot MPIN, custom numpad, error shake, biometric, AI login-risk
  * hook (passive AIAlertBanner). Any 6 digits proceed (demo). a11y: dot count announced.
  */
 import { motion, useAnimationControls } from "framer-motion";

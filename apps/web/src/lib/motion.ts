@@ -27,7 +27,7 @@ export const staggerItem: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.25, ease: EASE.decelerate } },
 };
 
-// persona morph — the whole phone re-renders; cross-fade + soft rise
+// persona morph - the whole phone re-renders; cross-fade + soft rise
 export const personaMorph: Variants = {
   hidden: { opacity: 0, y: 14 },
   show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: EASE.decelerate } },

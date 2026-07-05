@@ -1,4 +1,4 @@
-/** <AppBar> — DESIGN.md §5.3. Brand bar, optional back + trailing actions, transparent variant. */
+/** <AppBar> - DESIGN.md §5.3. Brand bar, optional back + trailing actions, transparent variant. */
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "../../lib/icons";
 
@@ -17,7 +17,7 @@ export function AppBar({
   return (
     <header
       className={[
-        "z-[200] flex h-14 items-center gap-1 px-2",
+        "z-[200] flex min-h-[88px] items-center gap-1 px-2 pb-2 pt-12",
         transparent ? "bg-transparent text-white" : "bg-brand text-white shadow-e4",
       ].join(" ")}
     >

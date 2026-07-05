@@ -1,4 +1,4 @@
-/** <QuickActionItem> — DESIGN.md §5.2. 48dp icon circle + label, 72dp tap target. */
+/** <QuickActionItem> - DESIGN.md §5.2. 48dp icon circle + label, 72dp tap target. */
 import { motion } from "framer-motion";
 import { PhIcon } from "../../lib/icons";
 

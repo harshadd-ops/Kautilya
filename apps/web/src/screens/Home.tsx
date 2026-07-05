@@ -1,7 +1,7 @@
 /**
- * Home — the demo money-shot (BUILD_PROMPT §14 Act 1) and the persona showpiece (Act 2).
+ * Home - the demo money-shot (BUILD_PROMPT §14 Act 1) and the persona showpiece (Act 2).
  * Reads the AdaptiveUIProfile + the authored next-best-action from the backend and morphs:
- * which AI components surface, font scale, density, contrast, choice count, copy tone — all
+ * which AI components surface, font scale, density, contrast, choice count, copy tone - all
  * engine-driven. The reasoning path is identical across personas (see the inspector).
  */
 import { motion } from "framer-motion";
@@ -46,7 +46,6 @@ export default function Home() {
 
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [whyOpen, setWhyOpen] = useState(false);
-  const [voiceOpen, setVoiceOpen] = useState(false);
   const [done, setDone] = useState(false);
 
   // Act-1 beat is driven by the provider's real fetch: each persona switch re-runs the spine, so
@@ -78,7 +77,7 @@ export default function Home() {
   return (
     <div className="phone-scroll flex-1 overflow-y-auto pb-28 bg-slate-50/50">
       {/* header */}
-      <div className="bg-brand px-5 pb-8 pt-6 text-white shadow-sm relative z-10">
+      <div className="bg-brand px-5 pb-8 pt-14 text-white shadow-sm relative z-10">
         <div className="flex items-start justify-between">
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-2">
@@ -111,7 +110,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="screen-stack -mt-4 px-5 space-y-6 relative z-20">
+      <motion.div layout className="screen-stack -mt-4 px-5 space-y-6 relative z-20">
         {/* account */}
         {account && (
           <AccountCard
@@ -122,7 +121,7 @@ export default function Home() {
           />
         )}
 
-        {/* AI slot 0 — scam-shield for senior (DESIGN.md §8.3 slot 0) */}
+        {/* AI slot 0 - scam-shield for senior (DESIGN.md §8.3 slot 0) */}
         {aiEnabled && surfaced.includes("AIAlertBanner") && (
           <AIAlertBanner
             title="Scam-shield is watching your account"
@@ -134,7 +133,7 @@ export default function Home() {
           />
         )}
 
-        {/* AI slot 1 — the engine-authored nudge (or success after confirm). */}
+        {/* AI slot 1 - the engine-authored nudge (or success after confirm). */}
         {done ? (
           <motion.section
             initial={{ opacity: 0, scale: 0.95 }}
@@ -165,8 +164,8 @@ export default function Home() {
             </div>
           </div>
         ) : showInsight && nba?.content ? (
-          <div className="flex flex-col gap-2">
-            <h2 className="text-[12px] font-bold tracking-widest text-slate-400 uppercase ml-1">Today's Financial Priority</h2>
+          <div className="flex flex-col gap-3">
+            <h2 className="text-[11px] font-extrabold tracking-[0.15em] text-slate-500 uppercase px-1">Today's Financial Priority</h2>
             <AIInsightCard
               content={nba.content}
               confidence={nba.confidence}
@@ -187,7 +186,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* AI slot 2 — DCS ring (student) / spending widget (others) */}
+        {/* AI slot 2 - DCS ring (student) / spending widget (others) */}
         {aiEnabled && surfaced.includes("DCSRing") && customer && (
           <DCSRing dcs={customer.dcs} />
         )}
@@ -195,12 +194,12 @@ export default function Home() {
           <AISpendingSummaryWidget onExpand={() => nav("/app/transactions")} />
         )}
 
-        {/* AI slot 3 — FD maturity (mid-career + senior) */}
+        {/* AI slot 3 - FD maturity (mid-career + senior) */}
         {aiEnabled && surfaced.includes("AIMaturityCountdown") && (
           <AIMaturityCountdownCard onRenew={() => nav("/app/fd")} onWithdraw={() => nav("/app/fd")} />
         )}
 
-        {/* secondary content — trimmed for the simplified senior layout */}
+        {/* secondary content - trimmed for the simplified senior layout */}
         {!simplify && (
           <>
             <div>
@@ -233,26 +232,16 @@ export default function Home() {
         )}
 
         <p className="pt-6 pb-2 text-center t-label-sm text-slate-400 font-medium tracking-wide">
-          All figures SYNTHETIC · not real SBI customer data
+          All figures SYNTHETIC - not real SBI customer data
         </p>
-      </div>
-
-      {/* Voice-First Interface for Dadaji (Senior Profile) */}
-      {profile?.archetype === "senior" && (
-        <button 
-          onClick={() => setVoiceOpen(true)}
-          className="fixed bottom-24 right-6 h-16 w-16 rounded-full bg-brand text-white shadow-xl shadow-brand/30 flex items-center justify-center hover:scale-105 transition-transform z-40 border-4 border-white"
-        >
-          <Microphone size={28} weight="fill" />
-        </button>
-      )}
+      </motion.div>
 
       {/* HITL confirm gate (money-touching → human approval) */}
       {action && (
         <ConfirmationSheet
           open={confirmOpen}
           onClose={() => setConfirmOpen(false)}
-          title="Confirm — human in the loop"
+          title="Review & Confirm"
           headline={inr(action.suggested_ticket ?? action.min_ticket ?? 0)}
           rows={[
             { k: "Action", v: action.product_name ?? action.verb },
@@ -290,38 +279,13 @@ export default function Home() {
           <div className="bg-white rounded-xl p-5 border border-slate-100 shadow-sm flex flex-col gap-4">
              <div className="flex items-start gap-4">
                <span className="h-2 w-2 rounded-full bg-red-400 mt-1.5 shrink-0 shadow-sm" />
-               <p className="text-[13px] text-slate-500 font-mono leading-relaxed"><span className="text-slate-800 font-semibold font-sans text-sm">VKYC Abandonment</span><br/>Screen: 'Onboarding' · Severity: 0.8<br/><span className="text-slate-400 text-xs">2026-07-03</span></p>
+               <p className="text-[13px] text-slate-500 font-mono leading-relaxed"><span className="text-slate-800 font-semibold font-sans text-sm">VKYC Abandonment</span><br/>Screen: 'Onboarding' - Severity: 0.8<br/><span className="text-slate-400 text-xs">2026-07-03</span></p>
              </div>
              <div className="h-px w-full bg-slate-50" />
              <div className="flex items-start gap-4">
                <span className="h-2 w-2 rounded-full bg-emerald-400 mt-1.5 shrink-0 shadow-sm" />
-               <p className="text-[13px] text-slate-500 font-mono leading-relaxed"><span className="text-slate-800 font-semibold font-sans text-sm">Read KFS Document</span><br/>Subject: 'Retirement' · Dwell: 45s<br/><span className="text-slate-400 text-xs">2026-06-28</span></p>
+               <p className="text-[13px] text-slate-500 font-mono leading-relaxed"><span className="text-slate-800 font-semibold font-sans text-sm">Read KFS Document</span><br/>Subject: 'Retirement' - Dwell: 45s<br/><span className="text-slate-400 text-xs">2026-06-28</span></p>
              </div>
-          </div>
-        </div>
-      </BottomSheet>
-
-      {/* Voice Assistant Modal */}
-      <BottomSheet open={voiceOpen} onClose={() => setVoiceOpen(false)} title="Voice Assistant" height="55%">
-        <div className="flex flex-col h-full pt-6">
-          <div className="flex justify-end mb-6">
-            <div className="bg-brand text-white rounded-2xl rounded-tr-sm px-5 py-3 max-w-[85%] text-[15px] shadow-sm font-medium">
-              Beta, FD kaise start karein?
-            </div>
-          </div>
-          <div className="flex justify-start">
-            <div className="bg-slate-100 text-slate-800 rounded-2xl rounded-tl-sm px-5 py-4 max-w-[90%] text-[15px] shadow-sm leading-relaxed border border-slate-200">
-              Pranam Dadaji. Aapki pension par <strong className="text-brand font-semibold">7.5% interest</strong> milega. Kya main Branch Manager ko call karne ke liye kahun?
-            </div>
-          </div>
-          <div className="mt-auto flex justify-center pb-12 pt-10">
-            <div className="relative flex items-center justify-center">
-              <div className="absolute h-24 w-24 bg-brand/10 rounded-full animate-ping" />
-              <div className="absolute h-20 w-20 bg-brand/20 rounded-full animate-pulse" />
-              <div className="relative h-16 w-16 bg-brand text-white rounded-full flex items-center justify-center shadow-lg shadow-brand/40 z-10">
-                <Microphone size={32} weight="fill" />
-              </div>
-            </div>
           </div>
         </div>
       </BottomSheet>

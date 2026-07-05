@@ -1,5 +1,5 @@
 /**
- * AdaptiveProvider — fetches the active customer's projection + AdaptiveUIProfile + the authored
+ * AdaptiveProvider - fetches the active customer's projection + AdaptiveUIProfile + the authored
  * next-best-action, and exposes them to the phone tree. Switching persona (in the store) triggers
  * a refetch; the UI morphs because the *backend* re-derived the profile, not because the FE faked it.
  */

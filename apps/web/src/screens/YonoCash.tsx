@@ -1,9 +1,9 @@
 /**
- * YONO Cash — the signature SBI YONO innovation: cardless cash withdrawal at any SBI ATM / POS /
+ * YONO Cash - the signature SBI YONO innovation: cardless cash withdrawal at any SBI ATM / POS /
  * CSP. Generate a 6-digit code + reference number, valid for a short window, withdraw without a card.
  *
- * MY AI layer woven in: a persona-adaptive Scam-Shield (DESIGN.md §8 AIAlertBanner) — strongest for
- * the senior persona — warns never to share the code. SYNTHETIC.
+ * MY AI layer woven in: a persona-adaptive Scam-Shield (DESIGN.md §8 AIAlertBanner) - strongest for
+ * the senior persona - warns never to share the code. SYNTHETIC.
  */
 import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
@@ -20,7 +20,7 @@ import { useUiStore } from "../store/uiStore";
 
 const PRESETS = [500, 1000, 2000, 5000];
 
-// deterministic 6-digit code from amount (no Math.random — stable demo)
+// deterministic 6-digit code from amount (no Math.random - stable demo)
 function codeFor(amount: number): { code: string; ref: string } {
   const seed = (amount * 7919 + 31).toString().padStart(6, "0").slice(-6);
   const ref = (amount * 104729 + 11).toString().slice(-9).padStart(9, "0");
@@ -69,7 +69,7 @@ export default function YonoCash() {
             prefix="₹"
             value={amount}
             onChange={(e) => setAmount(e.target.value.replace(/\D/g, ""))}
-            helper={amt ? inr(amt) : "₹500 – ₹10,000 · multiples of ₹500"}
+            helper={amt ? inr(amt) : "₹500 - ₹10,000 - multiples of ₹500"}
           />
           <div className="flex gap-2">
             {PRESETS.map((p) => (
@@ -81,7 +81,7 @@ export default function YonoCash() {
             Generate YONO Cash code
           </SBIButton>
           <p className="text-center t-label-sm text-content-tertiary">
-            From Savings ••• 4521 · code valid 30 minutes
+            From Savings ••• 4521 - code valid 30 minutes
           </p>
         </div>
       ) : (
@@ -101,7 +101,7 @@ export default function YonoCash() {
             <div className="mt-3 t-label-sm uppercase text-content-tertiary">Reference number</div>
             <div className="t-mono text-content-primary" style={{ fontSize: "calc(20px * var(--font-scale))" }}>{ref}</div>
             <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-[var(--colour-amber-50)] px-3 py-1.5 t-label-sm" style={{ color: "var(--colour-amber-900)" }}>
-              Valid for 29:54 · {inr(amt)}
+              Valid for 29:54 - {inr(amt)}
             </div>
           </div>
 

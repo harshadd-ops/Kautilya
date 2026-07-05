@@ -1,6 +1,6 @@
 /**
  * Typed API client. Talks to the governed spine at /v1 (proxied to :8000). The frontend can
- * never construct an action — it only requests one, renders the one the backend authored, and
+ * never construct an action - it only requests one, renders the one the backend authored, and
  * POSTs the human's approval back.
  *
  * VITE_MOCK=1 → serve bundled fixtures (the stage parachute). The seam is identical either way.

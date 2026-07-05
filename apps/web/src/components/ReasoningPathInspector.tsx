@@ -1,5 +1,5 @@
 /**
- * <ReasoningPathInspector> — the explainability surface (BUILD_PROMPT §5/§7.4). Lights up each
+ * <ReasoningPathInspector> - the explainability surface (BUILD_PROMPT §5/§7.4). Lights up each
  * hop of the governed spine + the ontology traversal that authored the action. This is the proof
  * that governance is constant while presentation adapts: the SAME path renders for every persona.
  */
@@ -70,7 +70,7 @@ export function ReasoningPathInspector({
                   <span className="t-body-sm font-semibold text-content-primary">{h.node}</span>
                   {h.edge && (
                     <span className="t-mono text-content-tertiary" style={{ fontSize: 11 }}>
-                      –[{h.edge}]→
+                      -[{h.edge}]→
                     </span>
                   )}
                 </div>
@@ -83,7 +83,7 @@ export function ReasoningPathInspector({
 
       {confidence != null && (
         <p className="mt-2 t-label-sm text-content-tertiary">
-          Authored by deterministic NBA · explained, never originated · confidence{" "}
+          Authored by deterministic NBA - explained, never originated - confidence{" "}
           {(confidence * 100).toFixed(0)}%
         </p>
       )}

@@ -1,4 +1,4 @@
-/** <BottomNavigationBar> — DESIGN.md §5.3. 5 items, active pill, role=navigation. */
+/** <BottomNavigationBar> - Apple-grade iOS navigation bar. */
 import { NavLink } from "react-router-dom";
 import { PhIcon } from "../../lib/icons";
 
@@ -14,8 +14,8 @@ export function BottomNavigationBar() {
   return (
     <nav
       aria-label="Main navigation"
-      className="absolute inset-x-0 bottom-0 z-[300] flex items-stretch border-t border-line bg-bg-surface shadow-e4"
-      style={{ height: 60 }}
+      className="absolute inset-x-0 bottom-0 z-[300] flex items-stretch border-t border-black/[0.08] bg-white/85 backdrop-blur-2xl saturate-[1.8] pb-7 pt-1.5"
+      style={{ height: 86 }}
     >
       {ITEMS.map((it) => (
         <NavLink
@@ -24,22 +24,17 @@ export function BottomNavigationBar() {
           aria-label={it.label}
           className={({ isActive }) =>
             [
-              "relative flex flex-1 flex-col items-center justify-center gap-1.5",
-              isActive ? "text-brand" : "text-content-tertiary",
+              "relative flex flex-1 flex-col items-center justify-start gap-[3px] pt-0.5",
+              isActive ? "text-[#2C1477]" : "text-[#999999] hover:text-[#777777] transition-colors",
             ].join(" ")
           }
         >
           {({ isActive }) => (
             <>
-              <div className="relative flex h-8 w-16 items-center justify-center">
-                {isActive && (
-                  <span className="absolute inset-0 rounded-full bg-brand-50" aria-hidden />
-                )}
-                <span className="relative z-10">
-                  <PhIcon name={it.icon} size={22} weight={isActive ? "fill" : "regular"} />
-                </span>
-              </div>
-              <span className="relative t-label-sm leading-none">{it.label}</span>
+              <span className="relative z-10 transition-transform duration-200 active:scale-95">
+                <PhIcon name={it.icon} size={26} weight={isActive ? "fill" : "regular"} />
+              </span>
+              <span className="text-[10px] font-medium tracking-[0.01em] leading-none">{it.label}</span>
             </>
           )}
         </NavLink>

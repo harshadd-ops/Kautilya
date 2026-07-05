@@ -1,5 +1,5 @@
 /**
- * Account Summary — DESIGN.md §2.5. Account card, action row, AI account-health widget, mini
+ * Account Summary - DESIGN.md §2.5. Account card, action row, AI account-health widget, mini
  * statement with inline AI tags, linked services.
  */
 import { useNavigate } from "react-router-dom";
@@ -15,9 +15,9 @@ import { useAdaptive } from "../lib/adaptive";
 import { useUiStore } from "../store/uiStore";
 
 const MINI = [
-  { id: "m1", merchant: "Salary credit", meta: "27 Jun · NEFT", amount: 64000, icon: "CurrencyInr", cat: "Income" },
-  { id: "m2", merchant: "Swiggy", meta: "27 Jun · UPI", amount: -428, icon: "ForkKnife", cat: "Food" },
-  { id: "m3", merchant: "Amazon", meta: "26 Jun · Card", amount: -2149, icon: "ShoppingCart", cat: "Groceries" },
+  { id: "m1", merchant: "Salary credit", meta: "27 Jun - NEFT", amount: 64000, icon: "CurrencyInr", cat: "Income" },
+  { id: "m2", merchant: "Swiggy", meta: "27 Jun - UPI", amount: -428, icon: "ForkKnife", cat: "Food" },
+  { id: "m3", merchant: "Amazon", meta: "26 Jun - Card", amount: -2149, icon: "ShoppingCart", cat: "Groceries" },
 ];
 
 export default function AccountSummary() {

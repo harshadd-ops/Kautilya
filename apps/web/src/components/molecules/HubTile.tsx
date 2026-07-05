@@ -1,4 +1,4 @@
-/** <HubTile> — a labelled action tile used by the Pay / Invest / Shop hubs (real-YONO landing grids). */
+/** <HubTile> - a labelled action tile used by the Pay / Invest / Shop hubs (real-YONO landing grids). */
 import { motion } from "framer-motion";
 import { PhIcon } from "../../lib/icons";
 

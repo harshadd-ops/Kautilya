@@ -1,6 +1,6 @@
 /**
  * Stage-reliability parachute (BUILD_PROMPT §3). With VITE_MOCK=1 the frontend runs entirely
- * on these bundled fixtures — a flaky network never kills the pitch. These are RECORDED
+ * on these bundled fixtures - a flaky network never kills the pitch. These are RECORDED
  * backend responses, not client-authored logic: the frontend still never constructs an action.
  */
 import type {
@@ -84,8 +84,8 @@ export const MOCK_PROFILES: Record<string, AdaptiveUIProfile> = {
 
 const RAJESH_PATH: NextBestActionResponse["reasoning_path"] = [
   { node: "Intent Detection", detail: "intent='retirement_investment' for mid_career", kind: "spine", status: "pass" },
-  { node: "Policy & Compliance", detail: "consent 'investment_distribution' granted · RBI/DPDP/SEBI/IRDAI clear", kind: "spine", status: "pass" },
-  { node: "Governed Retrieval", detail: "grounded on Index Growth SIP — Key Facts", kind: "spine", status: "pass" },
+  { node: "Policy & Compliance", detail: "consent 'investment_distribution' granted - RBI/DPDP/SEBI/IRDAI clear", kind: "spine", status: "pass" },
+  { node: "Governed Retrieval", detail: "grounded on Index Growth SIP - Key Facts", kind: "spine", status: "pass" },
   { node: "Customer{dormancy:'dormant'}", edge: "HAS", detail: "Account{type:'SA', idle_surplus:true}", kind: "ontology", status: "pass" },
   { node: "Transaction", edge: "TRIGGERED_BY", detail: "LifeEvent{type:'salary_credit'}", kind: "ontology", status: "pass" },
   { node: "Customer -> Goal{type:'retirement'}", edge: "DECLARED", detail: "funded_pct:0.3", kind: "ontology", status: "pass" },
@@ -108,11 +108,11 @@ export const MOCK_NBA: Record<string, NextBestActionResponse> = {
     content: {
       component: "AIInsightCard", eyebrow: "AI Insight",
       title: "Idle surplus detected after your salary credit",
-      body: "₹40,000 has been sitting idle since your salary credit — about ₹1,400/yr in lost interest (illustrative). A ₹250/day SIP moves your retirement goal from 30% toward on-track.",
+      body: "₹40,000 has been sitting idle since your salary credit - about ₹1,400/yr in lost interest (illustrative). A ₹250/day SIP moves your retirement goal from 30% toward on-track.",
       primary_cta: "Review this nudge", secondary_cta: "Not now", icon: "ChartLineUp",
     },
     explanation:
-      "Because your retirement goal is 30% funded and your Index Growth SIP is eligible and suitable (market-linked, illustrative 11% p.a. (not guaranteed)), starting it now is the single highest-impact next step — surfaced only because the full reasoning path and consent were verified first.",
+      "Because your retirement goal is 30% funded and your Index Growth SIP is eligible and suitable (market-linked, illustrative 11% p.a. (not guaranteed)), starting it now is the single highest-impact next step - surfaced only because the full reasoning path and consent were verified first.",
     reasoning_path: RAJESH_PATH, confidence: 0.92, requires_hitl: true,
     audit_id: "aud_mock_rajesh", model_version: "daie-spine-1.0.0", data_source: "SYNTHETIC",
   },
@@ -130,7 +130,7 @@ export const MOCK_NBA: Record<string, NextBestActionResponse> = {
       primary_cta: "Start ₹100 SIP", secondary_cta: "Maybe later", icon: "Flame",
     },
     explanation:
-      "Because your gadget goal is 20% funded and your Micro-SIP Starter is eligible and suitable, starting it now is the single highest-impact next step — surfaced only because the full reasoning path and consent were verified first.",
+      "Because your gadget goal is 20% funded and your Micro-SIP Starter is eligible and suitable, starting it now is the single highest-impact next step - surfaced only because the full reasoning path and consent were verified first.",
     reasoning_path: RAJESH_PATH.map((h) =>
       h.node.includes("retirement")
         ? { ...h, node: "Customer -> Goal{type:'gadget'}", detail: "funded_pct:0.2" }
@@ -150,13 +150,13 @@ export const MOCK_NBA: Record<string, NextBestActionResponse> = {
       kfs_ref: "kfs_seniorfd",
     },
     content: {
-      component: "AIInsightCard", eyebrow: "Suraksha · AI Suggestion",
+      component: "AIInsightCard", eyebrow: "Suraksha - AI Suggestion",
       title: "Your pension is safe. It can also earn more.",
       body: "Namaste. Your pension credit is secure. A Senior Citizen FD earns a higher assured rate (7.50%). Would you like our branch manager to call and explain? No app steps needed.",
       primary_cta: "Ask branch manager to call", secondary_cta: "Tell me more", icon: "ShieldCheck",
     },
     explanation:
-      "Because your income goal is 25% funded and your Senior Citizen Fixed Deposit is eligible and suitable (7.50% p.a.), starting it now is the single highest-impact next step — surfaced only because the full reasoning path and consent were verified first.",
+      "Because your income goal is 25% funded and your Senior Citizen Fixed Deposit is eligible and suitable (7.50% p.a.), starting it now is the single highest-impact next step - surfaced only because the full reasoning path and consent were verified first.",
     reasoning_path: RAJESH_PATH.map((h) =>
       h.node.includes("retirement")
         ? { ...h, node: "Customer -> Goal{type:'income'}", detail: "funded_pct:0.25" }
@@ -193,7 +193,7 @@ export const MOCK_BARRIERS: BarrierResponse = {
   nodes: [
     { node_id: "fric_reliability", label: "App reliability / timeout", type: "reliability", screen: "all", severity: 0.9, cohort_share: 0.34 },
     { node_id: "fric_vkyc", label: "VKYC abandonment", type: "onboarding", screen: "onboarding", severity: 0.8, cohort_share: 0.3 },
-    { node_id: "fric_mf_overload", label: "Cognitive overload — MF selection", type: "cognitive", screen: "invest", severity: 0.72, cohort_share: 0.2 },
+    { node_id: "fric_mf_overload", label: "Cognitive overload - MF selection", type: "cognitive", screen: "invest", severity: 0.72, cohort_share: 0.2 },
     { node_id: "fric_balance_hidden", label: "Balance hidden by default", type: "ux", screen: "home", severity: 0.42, cohort_share: 0.16 },
     { node_id: "fric_settings_flat", label: "Flat settings hierarchy (20+ items)", type: "ux", screen: "profile", severity: 0.33, cohort_share: 0.12 },
   ],
